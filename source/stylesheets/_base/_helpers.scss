@@ -1,0 +1,78 @@
+// Hide an element but still makes it
+// available to screen readers
+@mixin visually-hidden {
+  margin: -1px;
+  padding: 0;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+
+  clip: rect(0 0 0 0);
+  clip: rect(0, 0, 0, 0);
+}
+
+
+
+// Center a block element without
+// altering its top and bottom
+// margins.
+@mixin centerize {
+  margin: {
+    left: auto;
+    right: auto;
+  }
+}
+
+
+
+// Add always-used rules for ::before
+// and ::after pseudo-elements
+@mixin pseudo($display: block, $pos: absolute, $content: '') {
+  content: $content;
+  display: $display;
+  position: $pos;
+}
+
+
+
+@mixin pos($pos: false, $t: false, $r: false, $b: false, $l: false) {
+  @if $pos { position: $pos; }
+  @if $t { top: $t; }
+  @if $r { right: $r; }
+  @if $b { bottom: $b; }
+  @if $l { left: $l; }
+}
+
+
+
+// Make defining font rules that much easier
+@mixin font($family: false, $size: false, $color: false, $weight: false, $lh: false, $spacing: false) {
+  @if $family { font-family: $family; }
+  @if $size { font-size: $size; }
+  @if $color { color: $color; }
+  @if $weight { font-weight: $weight; }
+  @if $lh { line-height: $lh; }
+  @if $spacing { letter-spacing: $spacing; }
+}
+
+
+
+// Responsive font formula
+// See: https://www.smashingmagazine.com/2016/05/fluid-typography/
+// calc( [min font size] + ([max font size] - [min font size]) * (100vw - [min screen size]) / ([max screen size] - [min screen size]))
+@mixin responsive-font($min-font, $max-font, $min-screen, $max-screen) {
+  font-size: calc(#{$min-font}em + (#{$max-font} - #{$min-font}) * (100vw - #{$min-screen}em) / (#{$max-screen} - #{$min-screen}));
+}
+
+
+
+// Flex-box helper
+@mixin flex-box($dir: false, $jc: false, $ac: false, $ai: false) {
+  display: flex;
+  @if $dir { flex-direction: $dir; }
+  @if $jc { justify-content: $jc; }
+  @if $ac { align-content: $ac; }
+  @if $ai { align-items: $ai; }
+}
+

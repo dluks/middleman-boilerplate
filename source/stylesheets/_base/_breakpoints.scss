@@ -1,0 +1,23 @@
+// Breakpoint widths (in ems)
+$sm: 26;
+$md: 48;
+$lg: 64;
+$xl: 86;
+
+@mixin breakpoint($point) {
+  @if $point == sm-only {
+    @media screen and (max-width: #{$md}em) { @content ; }
+  }
+  @else if $point == sm {
+    @media screen and (min-width: #{$sm}em) { @content ; }
+  }
+  @else if $point == md {
+    @media screen and (min-width: #{$md}em) { @content ; }
+  }
+  @else if $point == lg {
+    @media screen and (min-width: #{$lg}em) { @content ; }
+  }
+  @else if $point == xl {
+    @media screen and (min-width: #{$xl}em) { @content ; }
+  }
+}
