@@ -69,3 +69,17 @@ configure :build do
   # Link helpers use relative paths (use if site is a subdirectory)
   # set :relative_links, true
 end
+
+# activate :deploy do |deploy|
+#   deploy.deploy_method = :rsync
+#   deploy.build_before  = true
+#   deploy.host          = '' # prepended username because deploy.user is not working
+#   deploy.path          = ''
+#   # deploy.user          = '' #deploy.user is not using username in rsync call
+#   deploy.flags         = '-azh'
+#   # Optional Settings
+#   # deploy.user  = 'tvaughan' # no default
+#   # deploy.port  = 5309 # ssh port, default: 22
+#   # deploy.clean = true # remove orphaned files on remote host, default: false
+#   # deploy.flags = '-rltgoDvzO --no-p --del' # add custom flags, default: -avz
+# end
