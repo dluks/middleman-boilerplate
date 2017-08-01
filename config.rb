@@ -5,6 +5,11 @@ activate :autoprefixer do |prefix|
   prefix.browsers = "last 2 versions"
 end
 
+require 'sprockets/es6'
+activate :sprockets do |s|
+  s.supported_output_extensions << '.es6'
+end
+
 # Layouts
 # https://middlemanapp.com/basics/layouts/
 
